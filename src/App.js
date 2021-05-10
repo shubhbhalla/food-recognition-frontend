@@ -26,7 +26,7 @@ function App() {
 
   const onFoodImageSubmit = () => {
     setUrl(input);
-    fetch('http://localhost:3000/apicall', {
+    fetch('https://food-backend-api-3000.herokuapp.com/apicall', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ url: input }),
@@ -46,7 +46,7 @@ function App() {
 
           const id = user.id;
           const items = filteredItems.length;
-          fetch(`http://localhost:3000/fooditem`, {
+          fetch(`https://food-backend-api-3000.herokuapp.com/fooditem`, {
             method: 'put',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

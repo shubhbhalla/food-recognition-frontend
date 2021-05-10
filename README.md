@@ -1,4 +1,4 @@
-# Food-recognition-aaplication
+# Food-recognition-application
 
 ## This is the front end of the food recognition application made by [Shubh Bhalla](https://www.linkedin.com/in/shubh-bhalla-b86693a7/)
 

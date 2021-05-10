@@ -25,7 +25,7 @@ const Register = ({ setState, setUser }) => {
 
   const onSubmit = () => {
     if (person.email && person.password && person.name) {
-      fetch('http://localhost:3000/register', {
+      fetch('https://food-backend-api-3000.herokuapp.com/register', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(person),
