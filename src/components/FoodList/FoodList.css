@@ -1,0 +1,23 @@
+.item {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 500px;
+  margin: 1rem auto;
+  align-items: center;
+  border-radius: 0.25rem;
+  padding: 1rem 2rem;
+  width: 90%;
+  text-align: center;
+}
+
+.users {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin: 1rem auto;
+}
