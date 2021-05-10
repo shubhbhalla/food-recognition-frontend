@@ -18,7 +18,8 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
-You will also see any lint errors in the console.
+
+After cloning this app you can work with the custom api built by me to change the user profile as you please. This feature has been kept because this was a fun personal project and I wanted other people to play around with my server!
 
 ## Learn More
 
