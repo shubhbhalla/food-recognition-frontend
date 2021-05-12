@@ -13,9 +13,9 @@
 }
 
 .users {
-  width: 90vw;
+  width: 80vw;
   margin: 0 auto;
-  max-width: 1170px;
+  max-width: 1000px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1rem;

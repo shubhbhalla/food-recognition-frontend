@@ -7,7 +7,13 @@ const FoodList = ({ items }) => {
       <ul className="users">
         {items.map(({ id, name, value }) => {
           return (
-            <li key={id} className="item">
+            <li
+              style={{
+                background: 'linear-gradient(to right, #ffdde1, #ee9ca7)',
+              }}
+              key={id}
+              className="item"
+            >
               <p>{`-- ${name} -- `}</p>
               <p>{`Probability(${value})`}</p>
             </li>

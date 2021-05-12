@@ -46,8 +46,8 @@ const Register = ({ setState, setUser }) => {
 
   return (
     <>
-      <article className="form shadow-4">
-        <div className="flex flex-column items-center">
+      <article className="form dark-blue shadow-5">
+        <div className="flex flex-column mv3 items-center">
           <h3>Register</h3>
           <br />
           <div className="form-control">
@@ -81,11 +81,11 @@ const Register = ({ setState, setUser }) => {
               onChange={handleChange}
             />
           </div>
-          <button className="btn" type="submit" onClick={onSubmit}>
+          <p className="pointer tc grow mv3" onClick={onSubmit}>
             Create New User
-          </button>
+          </p>
           <p
-            className="pointer tc grow ma3"
+            className="pointer tc grow mv2"
             onClick={() => {
               setState({ signin: true, register: false });
             }}

@@ -47,45 +47,43 @@ const SignIn = ({ setState, setUser }) => {
   };
 
   return (
-    <>
-      <article className="form shadow-4">
-        <div className="flex flex-column items-center">
-          <h3>Existing Users Login</h3>
-          <br />
-          <div className="form-control">
-            <label htmlFor="email">Email : </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={person.email}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-control">
-            <label htmlFor="password">Password : </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={person.password}
-              onChange={handleChange}
-            />
-          </div>
-          <button type="submit" className="btn ma2" onClick={onSubmit}>
-            Sign In
-          </button>
-          <p
-            className="pointer ma2 tc grow"
-            onClick={() => {
-              setState({ signin: false, register: true });
-            }}
-          >
-            New User
-          </p>
+    <article className="form dark-blue shadow-5">
+      <div className="flex flex-column mv3 items-center">
+        <h3>Existing Users Login</h3>
+        <br />
+        <div className="form-control">
+          <label htmlFor="email">Email : </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={person.email}
+            onChange={handleChange}
+          />
         </div>
-      </article>
-    </>
+        <div className="form-control">
+          <label htmlFor="password">Password : </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={person.password}
+            onChange={handleChange}
+          />
+        </div>
+        <p className="pointer mv3 tc grow" onClick={onSubmit}>
+          Sign In
+        </p>
+        <p
+          className="pointer mv2 tc grow"
+          onClick={() => {
+            setState({ signin: false, register: true });
+          }}
+        >
+          New User
+        </p>
+      </div>
+    </article>
   );
 };
 

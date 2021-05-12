@@ -1,26 +1,28 @@
 const Form = ({ link, handleInput, handleSubmit }) => {
   return (
-    <>
-      <div className="flex justify-center">
-        <div className="w-60 flex justify-center pa4 br3 shadow-5">
-          <input
-            type="text"
-            placeholder="Input the Url of an Image of Food"
-            className="f5 pa2 w-60"
-            value={link}
-            onChange={(e) => {
-              handleInput(e.target.value);
-            }}
-          />
-          <button
-            className="w-30 f6 link ph3 pv2 dib black bg-light"
-            onClick={handleSubmit}
-          >
-            Detect Food Items
-          </button>
-        </div>
+    <div className="pa4-l">
+      <div className="mw7 center pa4 br2-ns b--black-10">
+        <fieldset className="cf bn ma0 pa0">
+          <div className="cf">
+            <input
+              className="f6 f5-l input-reset bn fl black-80 bg-white pa3 lh-solid w-100 w-75-m w-80-l br2-ns br--left-ns"
+              placeholder="URL of Image containing Food Item"
+              type="text"
+              value={link}
+              onChange={(e) => {
+                handleInput(e.target.value);
+              }}
+            />
+            <button
+              className="f6 f5-l button-reset fl pv3 tc bn bg-animate bg-black-70 hover-bg-near-black white pointer w-100 w-25-m w-20-l br2-ns br--right-ns bg-gray"
+              onClick={handleSubmit}
+            >
+              Detect
+            </button>
+          </div>
+        </fieldset>
       </div>
-    </>
+    </div>
   );
 };
 

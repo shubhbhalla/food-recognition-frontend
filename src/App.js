@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import Header from './components/Header/Header';
+import Nav from './components/Nav/Nav';
 import Form from './components/Form/Form';
 import Data from './components/Data/Data';
 import Image from './components/Image/Image';
@@ -69,30 +69,23 @@ function App() {
   };
 
   return state.signin ? (
-    <div
-      style={{
-        position: 'absolute',
-        left: '50%',
-        top: '50%',
-        transform: 'translate(-50%, -50%)',
-      }}
-    >
+    <div>
+      <h1 className="tc fw4 pa5 ma4 near-black lh-solid lh-copy">
+        This App will detect Food Items in your image URL
+      </h1>
       <SignIn setState={setState} setUser={setUser} />
     </div>
   ) : state.register ? (
-    <div
-      style={{
-        position: 'absolute',
-        left: '50%',
-        top: '50%',
-        transform: 'translate(-50%, -50%)',
-      }}
-    >
+    <div>
+      <h1 className="tc fw4 pa5 ma4 near-black lh-solid lh-copy">
+        This App will detect Food Items in your image URL
+      </h1>
+
       <Register setState={setState} setUser={setUser} />
     </div>
   ) : (
     <div className="App ttc">
-      <Header
+      <Nav
         setState={setState}
         setFoodItems={setFoodItems}
         setInput={setInput}
