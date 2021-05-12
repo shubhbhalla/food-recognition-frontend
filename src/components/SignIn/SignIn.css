@@ -81,7 +81,7 @@
 .form {
   max-width: var(--fixed-width);
   margin: 0 auto;
-  margin-bottom: 4rem;
+  margin-bottom: 8rem;
   padding: 1rem 2rem;
   border-radius: var(--radius);
 }

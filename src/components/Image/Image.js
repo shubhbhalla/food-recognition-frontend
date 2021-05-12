@@ -1,5 +1,5 @@
 const Image = ({ url }) => {
-  if (!url)
+  if (!url || url.substring(0, 4) === 'data')
     return (
       <h1 className="tc fw3 pa5 ma4 dark-blue lh-solid lh-copy">
         Input Image URL Above
