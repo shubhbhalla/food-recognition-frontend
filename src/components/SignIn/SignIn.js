@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './SignIn.css';
 
 const SignIn = ({ setState, setUser }) => {
   const [person, setPerson] = useState({ email: '', password: '' });
+  const emailRef = useRef();
 
   const enterKeyPress = (e) => {
     if (e.key === 'Enter') {
@@ -12,6 +13,7 @@ const SignIn = ({ setState, setUser }) => {
 
   useEffect(() => {
     window.addEventListener('keypress', enterKeyPress);
+    emailRef.current.focus();
     return () => {
       window.removeEventListener('keypress', enterKeyPress);
     };
@@ -59,6 +61,7 @@ const SignIn = ({ setState, setUser }) => {
             name="email"
             value={person.email}
             onChange={handleChange}
+            ref={emailRef}
           />
         </div>
         <div className="form-control">

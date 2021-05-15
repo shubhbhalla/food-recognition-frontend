@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import '../SignIn/SignIn.css';
 
 const Register = ({ setState, setUser }) => {
   const [person, setPerson] = useState({ email: '', name: '', password: '' });
+  const nameRef = useRef();
 
   const enterKeyPress = (e) => {
     if (e.key === 'Enter') {
@@ -12,6 +13,7 @@ const Register = ({ setState, setUser }) => {
 
   useEffect(() => {
     window.addEventListener('keypress', enterKeyPress);
+    nameRef.current.focus();
     return () => {
       window.removeEventListener('keypress', enterKeyPress);
     };
@@ -53,6 +55,7 @@ const Register = ({ setState, setUser }) => {
           <div className="form-control">
             <label htmlFor="name">Name : </label>
             <input
+              ref={nameRef}
               type="text"
               id="name"
               name="name"
