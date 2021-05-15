@@ -13,11 +13,14 @@ const Register = ({ setState, setUser }) => {
 
   useEffect(() => {
     window.addEventListener('keypress', enterKeyPress);
-    nameRef.current.focus();
     return () => {
       window.removeEventListener('keypress', enterKeyPress);
     };
   });
+
+  useEffect(() => {
+    nameRef.current.focus();
+  }, []);
 
   const handleChange = (e) => {
     const name = e.target.name;

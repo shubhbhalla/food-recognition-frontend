@@ -13,11 +13,14 @@ const SignIn = ({ setState, setUser }) => {
 
   useEffect(() => {
     window.addEventListener('keypress', enterKeyPress);
-    emailRef.current.focus();
     return () => {
       window.removeEventListener('keypress', enterKeyPress);
     };
   });
+
+  useEffect(() => {
+    emailRef.current.focus();
+  }, []);
 
   const handleChange = (e) => {
     const name = e.target.name;
