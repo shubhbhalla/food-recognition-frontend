@@ -6,10 +6,6 @@ After cloning this project run
 
 ### `npm install`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
 In the project directory, you can run:
 
 ### `npm start`
@@ -17,7 +13,8 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
+Made a dynamic food recognition website with HTML5, CSS3 and JavaScript (React.js) at the front end, and NodeJS and ExpressJS as the custom-server RESTfulAPI. The web application takes an image URL from a user as input and tells the user which food items are in the image and stores the number of food items scanned to the user’s account in a PostgreSQL database. Different endpoints of the custom server RESTful API were thoroughly tested using a Postman collaboration platform. The custom-made server and the database architecture were connected using Knex.js SQL query builder. The application was made secure by adding additional layers to the security, such as hashing the user passwords before storing them and using database transactions when adding data to different tables in the same function. API calls were made from the backend NodeJS infrastructure to Clarifai machine learning API to get the food items in the image input by the user. The application was deployed using Heroku CLI and git version control. ![image](https://user-images.githubusercontent.com/67706402/119395764-d7fa2080-bc88-11eb-9a59-0c7f20bd0501.png)
+
 
 After cloning this app you can work with the custom RESTful API built by me to change the user profile as you please. This feature has been kept because this was a fun personal project and I wanted other people to play around with my server!
 
