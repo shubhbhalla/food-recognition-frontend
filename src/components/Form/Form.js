@@ -1,4 +1,12 @@
-const Form = ({ link, handleInput, handleSubmit }) => {
+const Form = ({
+  link,
+  handleInput,
+  handleSubmit,
+  testLink1,
+  testLink2,
+  testLink3,
+  testLink4,
+}) => {
   return (
     <div className="pa4-l">
       <div className="mw7 center pa4 br2-ns b--black-10">
@@ -18,6 +26,32 @@ const Form = ({ link, handleInput, handleSubmit }) => {
               onClick={handleSubmit}
             >
               Detect
+            </button>
+          </div>
+          <div className="ma4 flex items-center flex-wrap justify-around">
+            <button
+              className="ma3 f6 link dim ph3 pv2 mb2 dib white bg-blue"
+              onClick={testLink1}
+            >
+              Test link-1
+            </button>
+            <button
+              className="ma3 f6 link dim ph3 pv2 mb2 dib white bg-blue"
+              onClick={testLink2}
+            >
+              Test link-2
+            </button>
+            <button
+              className="ma3 f6 link dim ph3 pv2 mb2 dib white bg-blue"
+              onClick={testLink3}
+            >
+              Test link-3
+            </button>
+            <button
+              className="ma3 f6 link dim ph3 pv2 mb2 dib white bg-blue"
+              onClick={testLink4}
+            >
+              Test link-4
             </button>
           </div>
         </fieldset>
