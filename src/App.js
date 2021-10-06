@@ -95,10 +95,8 @@ function App() {
               method: 'post',
               headers: {
                 'Content-Type': 'application/json',
-                // 'x-app-id': process.env.x_app_id,
-                // 'x-app-key': process.env.x_app_key,
-                'x-app-id': 'a9027b40',
-                'x-app-key': 'aa96888cacceee7f3cbb9c6900adc901',
+                'x-app-id': process.env.x_app_id,
+                'x-app-key': process.env.x_app_key,
               },
               body: JSON.stringify({
                 query: food.name,
