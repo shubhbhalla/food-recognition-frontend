@@ -37,7 +37,7 @@ const SignIn = ({ setState, setUser }) => {
       })
         .then((response) => response.json())
         .then((user) => {
-          if (!user.email) return console.log('Error');
+          if (!user.email) return alert('Wrong combination');
 
           const { email, name, entries, joined, id } = user;
           if (email.toLowerCase() === person.email.toLowerCase()) {

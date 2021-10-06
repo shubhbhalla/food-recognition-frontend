@@ -47,48 +47,87 @@ function App() {
     );
   };
 
-  const onFoodImageSubmit = () => {
+  const onFoodImageSubmit = async () => {
+    setFoodItems([]);
     setUrl(input);
-    fetch('https://food-backend-api-3000.herokuapp.com/apicall', {
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ url: input }),
-    })
-      .then((res) => res.json())
-      .then((response) => {
-        if (response.outputs) {
-          const filteredItems = response.outputs[0].data.concepts.filter(
+    try {
+      const backendCall = await fetch(
+        'https://food-backend-api-3000.herokuapp.com/apicall',
+        {
+          method: 'post',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ url: input }),
+        }
+      );
+      const backendCallResponse = await backendCall.json();
+
+      if (backendCallResponse.outputs) {
+        const filteredItems =
+          backendCallResponse.outputs[0].data.concepts.filter(
             (e) => e.value > 0.9
           );
 
-          // if we could not identify any food items with more than 0.9 probability
-          if (!filteredItems.length) {
-            setFoodItems([]);
-            return;
-          }
-
-          const id = user.id;
-          const items = filteredItems.length;
-          fetch(`https://food-backend-api-3000.herokuapp.com/fooditem`, {
-            method: 'put',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              id,
-              items,
-            }),
-          })
-            .then((response) => response.json())
-            .then((number) => setUser({ ...user, entries: number }))
-            .catch(console.log);
-          setFoodItems(filteredItems);
-        } else {
-          setFoodItems([]);
+        // if we could not identify any food items with more than 0.9 probability
+        if (!filteredItems.length) {
+          return;
         }
-      })
-      .catch((err) => {
-        setFoodItems([]);
-        console.log(err);
-      });
+
+        const id = user.id;
+        const items = filteredItems.length;
+        fetch(`https://food-backend-api-3000.herokuapp.com/fooditem`, {
+          method: 'put',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            id,
+            items,
+          }),
+        })
+          .then((response) => response.json())
+          .then((number) => setUser({ ...user, entries: number }))
+          .catch(console.log);
+
+        const endResult = [];
+
+        for (const food of filteredItems) {
+          const nutritionApiCall = await fetch(
+            'https://trackapi.nutritionix.com/v2/natural/nutrients',
+            {
+              method: 'post',
+              headers: {
+                'Content-Type': 'application/json',
+                // 'x-app-id': process.env.x_app_id,
+                // 'x-app-key': process.env.x_app_key,
+                'x-app-id': 'a9027b40',
+                'x-app-key': 'aa96888cacceee7f3cbb9c6900adc901',
+              },
+              body: JSON.stringify({
+                query: food.name,
+                timezone: 'US/Eastern',
+              }),
+            }
+          );
+
+          const result = await nutritionApiCall.json();
+          if (result.foods) {
+            endResult.push(
+              Object.assign({}, food, {
+                grams: result.foods[0].serving_weight_grams,
+                calories: result.foods[0].nf_calories,
+                fat: result.foods[0].nf_total_fat,
+                protein: result.foods[0].nf_protein,
+                carbs: result.foods[0].nf_total_carbohydrate,
+              })
+            );
+          } else {
+            endResult.push(food);
+          }
+        }
+
+        setFoodItems(endResult);
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return state.signin ? (
