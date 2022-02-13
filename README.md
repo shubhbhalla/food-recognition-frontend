@@ -2,6 +2,10 @@
 
 ## This is the front end of the food recognition application made by [Shubh Bhalla](https://www.linkedin.com/in/shubh-bhalla-b86693a7/)
 
+<img width="1440" alt="Screen Shot 2022-02-13 at 10 43 43 AM" src="https://user-images.githubusercontent.com/67706402/153769846-05095ddc-5ecc-44fc-afdc-636340332c35.png">
+
+https://user-images.githubusercontent.com/67706402/153769911-2dc87d9d-809a-4c56-afab-1374b8033e72.mov
+
 After cloning this project run
 
 ### `npm install`
@@ -21,7 +25,3 @@ API calls were made from the backend NodeJS infrastructure to Clarifai machine l
 The application was deployed using Heroku CLI and git version control.
 
 After cloning this app you can work with the custom RESTful API built by me to change the user profile as you please. This feature has been kept because this was a fun personal project and I wanted other people to play around with my server!
-
-<img width="1440" alt="Screen Shot 2022-02-13 at 10 43 43 AM" src="https://user-images.githubusercontent.com/67706402/153769846-05095ddc-5ecc-44fc-afdc-636340332c35.png">
-
-https://user-images.githubusercontent.com/67706402/153769911-2dc87d9d-809a-4c56-afab-1374b8033e72.mov
