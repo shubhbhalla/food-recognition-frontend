@@ -24,6 +24,4 @@ After cloning this app you can work with the custom RESTful API built by me to c
 
 <img width="1440" alt="Screen Shot 2022-02-13 at 10 43 43 AM" src="https://user-images.githubusercontent.com/67706402/153769846-05095ddc-5ecc-44fc-afdc-636340332c35.png">
 
-
-Uploading Screen Recording 2022-02-13 at 10.44.53 AM.mov…
-
+https://user-images.githubusercontent.com/67706402/153769911-2dc87d9d-809a-4c56-afab-1374b8033e72.mov
