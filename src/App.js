@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import ReactLoading from 'react-loading';
+
 import './App.css';
 import Nav from './components/Nav/Nav';
 import Form from './components/Form/Form';
@@ -24,6 +26,8 @@ function App() {
     date: 0,
     entries: 0,
   });
+  const [loading, setLoading] = useState(false);
+  const [fetchingFoodItems, setFetchingFoodItems] = useState(false);
 
   const testLink1 = () => {
     setInput(
@@ -48,6 +52,7 @@ function App() {
   };
 
   const onFoodImageSubmit = async () => {
+    setFetchingFoodItems(true);
     setFoodItems([]);
     setUrl(input);
     try {
@@ -95,8 +100,8 @@ function App() {
               method: 'post',
               headers: {
                 'Content-Type': 'application/json',
-                'x-app-id': process.env.x_app_id,
-                'x-app-key': process.env.x_app_key,
+                'x-app-id': 'a9027b40',
+                'x-app-key': '71d25fe47ac54dbd969fdf233af48282',
               },
               body: JSON.stringify({
                 query: food.name,
@@ -126,14 +131,19 @@ function App() {
     } catch (err) {
       console.log(err);
     }
+    setFetchingFoodItems(false);
   };
 
-  return state.signin ? (
+  return loading ? (
+    <div className="loadingIndicator">
+      <ReactLoading type={'bars'} height={'20%'} width={'20%'} />
+    </div>
+  ) : state.signin ? (
     <div>
       <h1 className="tc fw4 pa5 ma4 near-black lh-solid lh-copy">
         This App will detect Food Items in your image URL
       </h1>
-      <SignIn setState={setState} setUser={setUser} />
+      <SignIn setState={setState} setUser={setUser} setLoading={setLoading} />
       <Footer />
     </div>
   ) : state.register ? (
@@ -141,7 +151,7 @@ function App() {
       <h1 className="tc fw4 pa5 ma4 near-black lh-solid lh-copy">
         This App will detect Food Items in your image URL
       </h1>
-      <Register setState={setState} setUser={setUser} />
+      <Register setState={setState} setUser={setUser} setLoading={setLoading} />
       <Footer />
     </div>
   ) : (
@@ -163,7 +173,13 @@ function App() {
         testLink3={testLink3}
         testLink4={testLink4}
       />
-      <FoodList items={foodItems} />
+      {fetchingFoodItems ? (
+        <div className="loadingIndicator">
+          <ReactLoading type={'cubes'} height={'10%'} width={'10%'} />
+        </div>
+      ) : (
+        <FoodList items={foodItems} />
+      )}
       <Image url={url} />
     </div>
   );

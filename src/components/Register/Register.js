@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import '../SignIn/SignIn.css';
 
-const Register = ({ setState, setUser }) => {
+const Register = ({ setState, setUser, setLoading }) => {
   const [person, setPerson] = useState({ email: '', name: '', password: '' });
   const nameRef = useRef();
 
@@ -30,6 +30,7 @@ const Register = ({ setState, setUser }) => {
 
   const onSubmit = () => {
     if (person.email && person.password && person.name) {
+      setLoading(true);
       fetch('https://food-backend-api-3000.herokuapp.com/register', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
@@ -43,7 +44,9 @@ const Register = ({ setState, setUser }) => {
             setUser({ email, name, entries, joined, id });
             setState({ signin: false, register: false });
           }
-        });
+        })
+        .catch(console.error)
+        .finally(() => setLoading(false));
     } else {
       alert('Please fill in all the details');
     }

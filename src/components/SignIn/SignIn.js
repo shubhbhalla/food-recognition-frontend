@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import './SignIn.css';
 
-const SignIn = ({ setState, setUser }) => {
+const SignIn = ({ setState, setUser, setLoading }) => {
   const [person, setPerson] = useState({ email: '', password: '' });
   const emailRef = useRef();
 
@@ -29,6 +29,7 @@ const SignIn = ({ setState, setUser }) => {
   };
 
   const onSubmit = () => {
+    setLoading(true);
     if (person.email && person.password) {
       fetch('https://food-backend-api-3000.herokuapp.com/signin', {
         method: 'post',
@@ -45,7 +46,8 @@ const SignIn = ({ setState, setUser }) => {
             setState({ signin: false, register: false });
           }
         })
-        .catch(console.log);
+        .catch(console.error)
+        .finally(() => setLoading(false));
     } else {
       alert('Please fill in all the details');
     }

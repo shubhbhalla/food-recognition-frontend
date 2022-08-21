@@ -53,3 +53,8 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.loadingIndicator {
+  display: flex;
+  justify-content: center;
+}
