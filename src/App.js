@@ -31,6 +31,7 @@ function App() {
 
   useEffect(() => {
     fetch('https://food-backend-api-3000.herokuapp.com/start-server')
+      .then((response) => response.json())
       .then(console.log)
       .catch(console.log);
   }, []);
