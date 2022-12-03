@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ReactLoading from 'react-loading';
 
 import './App.css';
@@ -28,6 +28,12 @@ function App() {
   });
   const [loading, setLoading] = useState(false);
   const [fetchingFoodItems, setFetchingFoodItems] = useState(false);
+
+  useEffect(() => {
+    fetch('https://food-backend-api-3000.herokuapp.com/start-server')
+      .then(console.log)
+      .catch(console.log);
+  }, []);
 
   const testLink1 = () => {
     setInput(
